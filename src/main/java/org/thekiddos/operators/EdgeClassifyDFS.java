@@ -1,7 +1,5 @@
 package org.thekiddos.operators;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.thekiddos.datastructures.Edge;
 import org.thekiddos.datastructures.EdgeType;
 import org.thekiddos.datastructures.Graph;
@@ -26,7 +24,7 @@ public class EdgeClassifyDFS extends GraphOperator<List<Edge>> {
     public List<Edge> operate() {
         DFSInit();
 
-        for ( int i = 0; i < getGraph().size(); ++i ) {
+        for ( int i = 0; i < graphSize(); ++i ) {
             if ( state[ i ] == VertexState.NEW ) {
                 DFS( i );
             }
@@ -37,8 +35,8 @@ public class EdgeClassifyDFS extends GraphOperator<List<Edge>> {
 
     private void DFSInit() {
         dfsCounter = 0;
-        state = new VertexState[ getGraph().size() ];
-        dfsNumber = new int[ getGraph().size() ];
+        state = new VertexState[ graphSize() ];
+        dfsNumber = new int[ graphSize() ];
         Arrays.fill( state, VertexState.NEW );
         Arrays.fill( dfsNumber, -1 );
         classifiedEdges = new ArrayList<>();
@@ -48,7 +46,7 @@ public class EdgeClassifyDFS extends GraphOperator<List<Edge>> {
         state[ v ] = VertexState.ACTIVE;
         dfsNumber[ v ] = dfsCounter++;
 
-        for ( Edge edge : getGraph().getOutEdges( v ) ) {
+        for ( Edge edge : getOutEdges( v ) ) {
             int end = edge.getDestination();
 
             Edge classifiedEdge = new Edge( v, end, edge.getWeight() );

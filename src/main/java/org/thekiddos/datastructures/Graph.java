@@ -64,4 +64,11 @@ public class Graph implements Cloneable {
     public List<Edge> getEdges() {
         return adjacencyList.stream().flatMap( Collection::stream ).collect( Collectors.toList() );
     }
+
+    @Override
+    public String toString() {
+        return "Graph{" +
+                "adjacencyList=" + adjacencyList +
+                '}';
+    }
 }

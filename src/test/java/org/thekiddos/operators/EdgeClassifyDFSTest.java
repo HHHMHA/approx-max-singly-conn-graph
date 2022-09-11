@@ -33,7 +33,7 @@ class EdgeClassifyDFSTest {
 
 
         assertEquals(
-                List.of( EdgeType.TREE, EdgeType.TREE, EdgeType.TREE, EdgeType.BACK, EdgeType.TREE, EdgeType.TREE, EdgeType.BACK, EdgeType.CROSS ),
+                List.of( EdgeType.TREE, EdgeType.TREE, EdgeType.TREE, EdgeType.BACK, EdgeType.TREE, EdgeType.TREE, EdgeType.BACK, EdgeType.TREE ),
                 new EdgeClassifyDFS( g ).operate().stream().map( Edge::getType ).collect( Collectors.toList() )
         );
     }

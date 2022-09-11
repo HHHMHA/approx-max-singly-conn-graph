@@ -5,7 +5,7 @@ import org.thekiddos.datastructures.Graph;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ApproxMaxSinglyConnectedSubgraphFinderTest {
+class AddApproxMSCSFTest {
 
     @Test
     void operate() {
@@ -44,7 +44,7 @@ class ApproxMaxSinglyConnectedSubgraphFinderTest {
         g3Expected.addEdge( 6, 7, 1 );
         g3Expected.addEdge( 6, 1, 1 );
 
-        assertEquals( g3Expected.getEdges(), new ApproxMaxSinglyConnectedSubgraphFinder( g3 ).operate().getEdges() );
+        assertEquals( g3Expected.getEdges(), new AddApproxMSCSF( g3 ).operate().getEdges() );
 
         Graph g4 = new Graph();
         g4.addVertices( 8 );
@@ -70,6 +70,6 @@ class ApproxMaxSinglyConnectedSubgraphFinderTest {
 
         g4.addEdge( 7, 1, 1 );
 
-        assertThrows( IllegalArgumentException.class, () -> new ApproxMaxSinglyConnectedSubgraphFinder( g4 ).operate() );
+        assertThrows( IllegalArgumentException.class, () -> new AddApproxMSCSF( g4 ).operate() );
     }
 }

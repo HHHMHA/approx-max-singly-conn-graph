@@ -7,20 +7,25 @@ import java.util.stream.Collectors;
 
 public class Graph implements Cloneable {
     private final List<List<Edge>> adjacencyList = new ArrayList<>();
+    private final List<Integer> inDegree = new ArrayList<>();
 
     public void addVertex() {
         adjacencyList.add( new ArrayList<>() );
+        inDegree.add( 0 );
     }
 
     public void addVertices( int number ) {
-        for ( int i = 0; i < number; ++i )
+        for ( int i = 0; i < number; ++i ) {
             adjacencyList.add( new ArrayList<>() );
+            inDegree.add( 0 );
+        }
     }
 
     public void addEdge( int source, int destination, int weight ) throws IllegalArgumentException {
         validateVertices( source, destination );
         List<Edge> sourceOutEdges = getOutEdges( source );
         sourceOutEdges.add( new Edge( source, destination, weight ) );
+        inDegree.set( destination, inDegree.get( destination ) + 1 );
     }
 
     public List<Edge> getOutEdges( int vertexIndex ) throws IndexOutOfBoundsException {
@@ -70,5 +75,14 @@ public class Graph implements Cloneable {
         return "Graph{" +
                 "adjacencyList=" + adjacencyList +
                 '}';
+    }
+
+
+    /**
+     * @param vertex the vertex index
+     * @return True if the in-degree is 0
+     */
+    public boolean isSource( int vertex ) {
+        return inDegree.get( vertex ) == 0;
     }
 }

@@ -1,8 +1,7 @@
-package org.thekiddos.operators;
+package org.thekiddos.operators.interfaces;
 
 import org.thekiddos.datastructures.Edge;
 import org.thekiddos.datastructures.Graph;
-import org.thekiddos.operators.interfaces.GraphOperator;
 
 import java.util.List;
 

@@ -4,6 +4,7 @@ import org.thekiddos.datastructures.Edge;
 import org.thekiddos.datastructures.EdgeType;
 import org.thekiddos.datastructures.Graph;
 import org.thekiddos.datastructures.VertexState;
+import org.thekiddos.operators.interfaces.EdgeClassifier;
 
 import java.util.ArrayList;
 import java.util.Arrays;

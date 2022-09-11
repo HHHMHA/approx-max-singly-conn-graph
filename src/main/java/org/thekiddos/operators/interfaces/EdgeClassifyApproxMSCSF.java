@@ -3,7 +3,6 @@ package org.thekiddos.operators.interfaces;
 import org.thekiddos.datastructures.Edge;
 import org.thekiddos.datastructures.EdgeType;
 import org.thekiddos.datastructures.Graph;
-import org.thekiddos.operators.EdgeClassifier;
 
 import java.util.List;
 

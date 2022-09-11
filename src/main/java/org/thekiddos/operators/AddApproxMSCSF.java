@@ -3,23 +3,17 @@ package org.thekiddos.operators;
 import org.thekiddos.datastructures.Edge;
 import org.thekiddos.datastructures.EdgeType;
 import org.thekiddos.datastructures.Graph;
-import org.thekiddos.operators.interfaces.EdgeClassifyApproxMSCSF;
 
-public class AddApproxMSCSF extends EdgeClassifyApproxMSCSF {
+public class AddApproxMSCSF extends SourceApproxMSCSF {
     public AddApproxMSCSF( Graph graph ) {
-        super( graph, new EdgeClassifyDFS( graph ) );
+        super( graph );
     }
 
     @Override
     public Graph operate() {
-        Graph result = new Graph();
-        result.addVertices( graphSize() );
+        Graph result = super.operate();
 
-        edges.stream()
-                .filter( e -> e.getType().equals( EdgeType.TREE ) )
-                .forEach( e -> result.addEdge( e.getSource(), e.getDestination(), e.getWeight() ) );
-
-        if ( !new SinglyConnectedTester( result ).operate() )
+        if ( result == null )
             return null;
 
         edges.stream()

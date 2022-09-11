@@ -14,7 +14,7 @@ public class EdgeClassifyDFS extends EdgeClassifier {
     private VertexState[] state;
     private int[] dfsNumber;
     private int dfsCounter;
-    List<Edge> classifiedEdges;
+    protected List<Edge> classifiedEdges;
 
     public EdgeClassifyDFS( Graph graph ) {
         super( graph );

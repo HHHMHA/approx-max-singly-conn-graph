@@ -85,4 +85,23 @@ public class Graph implements Cloneable {
     public boolean isSource( int vertex ) {
         return inDegree.get( vertex ) == 0;
     }
+
+    /**
+     * @param vertex the vertex index
+     * @return True if the out-degree is 0
+     */
+    public boolean isSink( int vertex ) {
+        return getOutEdges( vertex ).isEmpty();
+    }
+
+    public Graph reverse() {
+        Graph result = new Graph();
+        result.addVertices( this.size() );
+
+        for ( int i = 0 ; i < this.size(); ++i ) {
+            this.getOutEdges( i ).forEach( e -> result.addEdge( e.getDestination(), e.getSource(), e.getWeight() ) );
+        }
+
+        return result;
+    }
 }

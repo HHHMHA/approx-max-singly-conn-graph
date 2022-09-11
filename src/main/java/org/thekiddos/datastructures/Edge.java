@@ -17,6 +17,11 @@ public final class Edge implements Comparable<Edge> {
     @Setter
     EdgeType type = EdgeType.NONE;
 
+    public Edge( int source, int destination, int weight, EdgeType type ) {
+        this( source, destination, weight );
+        this.type = type;
+    }
+
     @Override
     public boolean equals( Object o ) {
         if ( this == o ) return true;

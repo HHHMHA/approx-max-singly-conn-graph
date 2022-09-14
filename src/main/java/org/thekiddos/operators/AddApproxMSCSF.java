@@ -13,9 +13,6 @@ public class AddApproxMSCSF extends SourceApproxMSCSF {
     public Graph operate() {
         Graph result = super.operate();
 
-        if ( result == null )
-            return null;
-
         edges.stream()
                 .filter( e -> !e.getType().equals( EdgeType.TREE ) )
                 .forEach( e -> tryAdd( result, e ) );

@@ -43,7 +43,7 @@ class SinkApproxMSCSFTest {
         // order important or we can compare sets instead of lists in assert
         g3Expected.addEdge( 6, 7, 1 );
 
-        assertEquals( g3Expected.getEdges(), new SourceApproxMSCSF( g3 ).operate().getEdges() );
+        assertEquals( g3Expected.getEdges(), new SinkApproxMSCSF( g3 ).operate().getEdges() );
 
         Graph g4 = new Graph();
         g4.addVertices( 8 );
@@ -69,6 +69,6 @@ class SinkApproxMSCSFTest {
 
         g4.addEdge( 7, 1, 1 );
 
-        assertThrows( IllegalArgumentException.class, () -> new SourceApproxMSCSF( g4 ).operate() );
+        assertThrows( IllegalArgumentException.class, () -> new SinkApproxMSCSF( g4 ).operate() );
     }
 }

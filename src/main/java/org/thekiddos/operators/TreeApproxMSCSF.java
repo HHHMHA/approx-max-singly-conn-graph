@@ -19,9 +19,6 @@ public abstract class TreeApproxMSCSF extends EdgeClassifyApproxMSCSF {
                 .filter( e -> e.getType().equals( EdgeType.TREE ) )
                 .forEach( e -> result.addEdge( e.getSource(), e.getDestination(), e.getWeight() ) );
 
-        if ( !new SinglyConnectedTester( result ).operate() )
-            return null;
-
         return result;
     }
 }

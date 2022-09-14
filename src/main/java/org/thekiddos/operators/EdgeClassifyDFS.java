@@ -24,15 +24,8 @@ public class EdgeClassifyDFS extends EdgeClassifier {
     public List<Edge> operate() {
         DFSInit();
 
-        // Prefer vertices with in-degree 0 first
         for ( int i = 0; i < graphSize(); ++i ) {
             if ( state[ i ] == VertexState.NEW && getGraph().isSource( i ) ) {
-                DFS( i );
-            }
-        }
-
-        for ( int i = 0; i < graphSize(); ++i ) {
-            if ( state[ i ] == VertexState.NEW ) {
                 DFS( i );
             }
         }

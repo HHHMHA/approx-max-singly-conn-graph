@@ -30,9 +30,8 @@ public class Graph implements Cloneable {
                 }
 
                 var splitLine = line.split( "\\s+" );
-                // In file vertex start at 1 not 0
-                var source = Integer.parseInt( splitLine[ 0 ] ) - 1;
-                var dest = Integer.parseInt( splitLine[ 1 ] ) - 1;
+                var source = Integer.parseInt( splitLine[ 0 ] );
+                var dest = Integer.parseInt( splitLine[ 1 ] );
                 var weight = 1;
                 if ( splitLine.length >= 3 ) {
                     weight = Integer.parseInt( splitLine[ 2 ] );

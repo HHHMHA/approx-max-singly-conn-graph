@@ -1,13 +1,64 @@
 package org.thekiddos.datastructures;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Graph implements Cloneable {
     private final List<List<Edge>> adjacencyList = new ArrayList<>();
     private final List<Integer> inDegree = new ArrayList<>();
+
+    public static Graph fromPath( Path path ) throws IOException {
+        Graph graph = new Graph();
+
+        try ( Scanner scanner = new Scanner( path ) ) {
+            scanner.useDelimiter( "\n" );
+
+            while ( scanner.hasNext() ) {
+                var line = scanner.next();
+
+                if ( hasNodeCount( line ) ) {
+                    graph.addVertices( getNodeCount( line ) );
+                }
+
+                if ( isComment( line ) || line.isEmpty() ) {
+                    continue;
+                }
+
+                var splitLine = line.split( "\\s+" );
+                // In file vertex start at 1 not 0
+                var source = Integer.parseInt( splitLine[ 0 ] ) - 1;
+                var dest = Integer.parseInt( splitLine[ 1 ] ) - 1;
+                var weight = 1;
+                if ( splitLine.length >= 3 ) {
+                    weight = Integer.parseInt( splitLine[ 2 ] );
+                }
+                graph.addEdge( source, dest, weight );
+            }
+        }
+
+        return graph;
+    }
+
+    // BEGIN HELPER METHODS FOR READING GRAPH FROM FILE
+    // Consider a subclass for that or an operator
+    private static int getNodeCount( String line ) {
+        int nodeCountIndex = 2;
+        return Integer.parseInt( line.split( "\\s+" )[ nodeCountIndex ] );
+    }
+
+    private static boolean hasNodeCount( String line ) {
+        return line.contains( "Nodes:" );
+    }
+
+    private static boolean isComment( String line ) {
+        return line.startsWith( "#" );
+    }
+    // END HELPER METHODS FOR READING GRAPH FROM FILE
 
     public void addVertex() {
         adjacencyList.add( new ArrayList<>() );

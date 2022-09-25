@@ -33,7 +33,7 @@ public class EdgeClassifyDFS extends EdgeClassifier {
         return classifiedEdges;
     }
 
-    private void DFSInit() {
+    protected void DFSInit() {
         dfsCounter = 0;
         state = new VertexState[ graphSize() ];
         dfsNumber = new int[ graphSize() ];
@@ -42,7 +42,7 @@ public class EdgeClassifyDFS extends EdgeClassifier {
         classifiedEdges = new ArrayList<>();
     }
 
-    private void DFS( int v ) {
+    protected void DFS( int v ) {
         state[ v ] = VertexState.ACTIVE;
         dfsNumber[ v ] = dfsCounter++;
 
@@ -78,5 +78,9 @@ public class EdgeClassifyDFS extends EdgeClassifier {
 
     private boolean unclassifiedEdge( List<Edge> result, Edge edge ) {
         return !result.contains( edge );
+    }
+
+    protected VertexState getState( int i ) {
+        return state[ i ];
     }
 }

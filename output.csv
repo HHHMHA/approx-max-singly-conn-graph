@@ -1,11 +1,16 @@
 algo, nodes, edges, edges kept, time (ms)
-SourceApproxMSCSF, 10876, 31478, 10853, 499
-SinkApproxMSCSF, 10876, 31478, 4784, 480
-ExtraSourceApproxMSCSF, 10876, 31478, 10853, 265
-NonSourceSinkApproxMSCSF, 10876, 31478, 10828, 301
+SourceApproxMSCSF, 8, 10, 6, 16
+SinkApproxMSCSF, 8, 10, 6, 5
+ExtraSourceApproxMSCSF, 8, 10, 6, 0
+NonSourceSinkApproxMSCSF, 8, 10, 3, 5
+AddApproxMSCSF, 8, 10, 7, 10
+SourceApproxMSCSF, 10876, 31478, 10853, 278
+SinkApproxMSCSF, 10876, 31478, 4784, 340
+ExtraSourceApproxMSCSF, 10876, 31478, 10853, 226
+NonSourceSinkApproxMSCSF, 10876, 31478, 10828, 219
 AddApproxMSCSF, 10876, 31478, error, Stack Overflow
-SourceApproxMSCSF, 75888, 258570, 50715, 25059
-SinkApproxMSCSF, 75888, 258570, 46653, 27972
-ExtraSourceApproxMSCSF, 75888, 258570, 50715, 30805
-NonSourceSinkApproxMSCSF, 75888, 258570, 48303, 17795
+SourceApproxMSCSF, 75888, 258570, 50715, 21304
+SinkApproxMSCSF, 75888, 258570, 46653, 18880
+ExtraSourceApproxMSCSF, 75888, 258570, 50715, 22988
+NonSourceSinkApproxMSCSF, 75888, 258570, 48303, 14753
 AddApproxMSCSF, 75888, 258570, error, Stack Overflow

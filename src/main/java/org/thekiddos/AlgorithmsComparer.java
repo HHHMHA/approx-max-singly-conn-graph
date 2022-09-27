@@ -18,6 +18,11 @@ public class AlgorithmsComparer {
         Graph[] dataset = {
                 Graph.fromPath(
                         Paths.get(
+                                AlgorithmsComparer.class.getClassLoader().getResource( "dataset/custom-mini-acyclic.txt" ).toURI()
+                        )
+                ),
+                Graph.fromPath(
+                        Paths.get(
                                 AlgorithmsComparer.class.getClassLoader().getResource( "dataset/p2p-Gnutella04-acyclic.txt" ).toURI()
                         )
                 ),
